@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_challenge/widgets/button.dart';
+import 'package:ui_challenge/widgets/currency_card.dart';
 
 void main() {
   runApp(const App());
@@ -21,7 +22,7 @@ class App extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 80,
+                height: 70,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -49,25 +50,25 @@ class App extends StatelessWidget {
                 ],
               ),
               const SizedBox(
-                height: 120,
+                height: 30,
               ),
               Text(
                 "Total Balance",
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   color: Colors.white.withOpacity(0.8),
                 ),
               ),
               const Text(
                 "\$ 5 193 284",
                 style: TextStyle(
-                  fontSize: 42,
+                  fontSize: 36,
                   fontWeight: FontWeight.w800,
                   color: Colors.white,
                 ),
               ),
               const SizedBox(
-                height: 30,
+                height: 20,
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -83,6 +84,63 @@ class App extends StatelessWidget {
                     textColor: Colors.white,
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  const Text(
+                    "Walltes",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 36,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  Text(
+                    "View All",
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 18,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const CurrencyCard(
+                name: "Euro",
+                code: "EUR",
+                amount: "6 428",
+                icon: Icons.euro_rounded,
+                isInverted: false,
+              ),
+              Transform.translate(
+                offset: const Offset(
+                  0,
+                  -30,
+                ),
+                child: const CurrencyCard(
+                  name: "Bitcoin",
+                  code: "BTC",
+                  amount: "15",
+                  icon: Icons.currency_bitcoin,
+                  isInverted: true,
+                ),
+              ),
+              Transform.translate(
+                offset: const Offset(0, -60),
+                child: const CurrencyCard(
+                  name: "Dollar",
+                  code: "USD",
+                  amount: "15 892",
+                  icon: Icons.attach_money_rounded,
+                  isInverted: false,
+                ),
               ),
             ],
           ),
