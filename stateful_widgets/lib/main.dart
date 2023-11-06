@@ -14,8 +14,16 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   int count = 0;
 
-  void onClicked() {
-    count += 1;
+  void onClickedAdd() {
+    setState(() {
+      count += 1;
+    });
+  }
+
+  void onClickedSub() {
+    setState(() {
+      count -= 1;
+    });
   }
 
   @override
@@ -42,12 +50,24 @@ class _AppState extends State<App> {
                   fontSize: 20,
                 ),
               ),
-              IconButton(
-                iconSize: 40,
-                onPressed: onClicked,
-                icon: const Icon(
-                  Icons.add_box_rounded,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  IconButton(
+                    iconSize: 40,
+                    onPressed: onClickedAdd,
+                    icon: const Icon(
+                      Icons.add_box_rounded,
+                    ),
+                  ),
+                  IconButton(
+                    iconSize: 40,
+                    onPressed: onClickedSub,
+                    icon: const Icon(
+                      Icons.remove_circle_outline_outlined,
+                    ),
+                  )
+                ],
               ),
             ],
           ),
